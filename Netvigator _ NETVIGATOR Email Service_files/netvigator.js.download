@@ -1,0 +1,39 @@
+var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+var u="https://www.kudostat.com/HTPWA/";
+var siteid='3'
+var domains='*.netvigator.com'
+
+function loadtracking(){
+    //window._paq.push(["setDomains", ["*.hotpepper.ddns.net/eggwaffle"]]);
+    //window._paq.push(["enableCrossDomainLinking"]);
+    //window._paq.push(['trackPageView']);
+    //window._paq.push(['enableLinkTracking']);
+    (function() {
+      window._paq.push(['setTrackerUrl', u+'HTPWA.php']);
+      window._paq.push(['setSiteId', siteid]);
+      //window._paq.push(['addTracker', u + '/HKPWA.php', 9]); // adds an additional tracker
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'HTPWA.js'; s.parentNode.insertBefore(g,s);
+    })();
+}
+
+
+loadtracking()
+ 
+window.piwikAsyncInit = function () {
+    var singletracker = Piwik.getTracker(u + 'HTPWA.php', 3);
+    singletracker.enableLinkTracking();
+    singletracker.setDomains([['*.netvigator.com','shop.hkt.com/broadband']])
+    singletracker.setCookieDomain(domains)
+    singletracker.enableCrossDomainLinking();
+    singletracker.trackPageView();
+
+    //var crosstracker = Piwik.getTracker( u + '/piwik.php',5);
+    //crosstracker.enableLinkTracking();
+    //crosstracker.enableCrossDomainLinking();	   
+    //crosstracker.setCookieDomain("*.hotpepper.ddns.net");
+    //crosstracker.setDomains(["*.hotpepper.ddns.net"]);
+    //crosstracker.trackPageView();
+};
+
